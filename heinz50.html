@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy 50. Birthday Heinz!</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #ffccff, #99ccff);
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      overflow: hidden;
+      text-align: center;
+    }
+    h1 {
+      font-size: 4em;
+      color: #ff0066;
+      text-shadow: 2px 2px 5px #fff;
+      animation: pop 1s infinite alternate;
+      margin: 0.2em 0;
+    }
+    h2 {
+      font-size: 2em;
+      color: #333;
+      margin: 0.2em 0;
+    }
+    @keyframes pop {
+      from { transform: scale(1); }
+      to { transform: scale(1.1); }
+    }
+
+    /* Ballons */
+    .balloon {
+      position: absolute;
+      bottom: -150px;
+      width: 60px;
+      height: 80px;
+      border-radius: 50% 50% 45% 55%;
+      animation: float 10s infinite;
+    }
+    .balloon::after {
+      content: "";
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      width: 2px;
+      height: 40px;
+      background: #555;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-110vh) rotate(20deg); }
+    }
+
+    /* Konfetti */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: gold;
+      animation: fall 5s linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Alles Gute zum 50. Geburtstag</h1>
+  <h2>Lieber Heinz!</h2>
+
+  <!-- Ballons -->
+  <div class="balloon" style="left:10%; background:#ff6666; animation-delay:0s;"></div>
+  <div class="balloon" style="left:30%; background:#66ccff; animation-delay:2s;"></div>
+  <div class="balloon" style="left:50%; background:#99ff99; animation-delay:4s;"></div>
+  <div class="balloon" style="left:70%; background:#ffcc66; animation-delay:6s;"></div>
+  <div class="balloon" style="left:90%; background:#cc99ff; animation-delay:8s;"></div>
+
+  <!-- Konfetti -->
+  <script>
+    function createConfetti() {
+      const confetti = document.createElement("div");
+      confetti.classList.add("confetti");
+      confetti.style.left = Math.random() * 100 + "vw";
+      confetti.style.background = `hsl(${Math.random()*360}, 100%, 50%)`;
+      confetti.style.animationDuration = (3 + Math.random()*2) + "s";
+      document.body.appendChild(confetti);
+      setTimeout(() => confetti.remove(), 5000);
+    }
+    setInterval(createConfetti, 200);
+  </script>
+</body>
+</html>

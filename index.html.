@@ -16,6 +16,7 @@
       overflow: hidden;
       text-align: center;
     }
+
     h1 {
       font-size: 4em;
       color: #ff0066;
@@ -23,17 +24,19 @@
       animation: pop 1s infinite alternate;
       margin: 0.2em 0;
     }
+
     h2 {
       font-size: 2em;
       color: #333;
       margin: 0.2em 0;
     }
+
     @keyframes pop {
       from { transform: scale(1); }
       to { transform: scale(1.1); }
     }
 
-    /* Ballons */
+    /* Balloons */
     .balloon {
       position: absolute;
       bottom: -150px;
@@ -42,6 +45,7 @@
       border-radius: 50% 50% 45% 55%;
       animation: float 10s infinite;
     }
+
     .balloon::after {
       content: "";
       position: absolute;
@@ -51,6 +55,7 @@
       height: 40px;
       background: #555;
     }
+
     @keyframes float {
       0% { transform: translateY(0) rotate(0deg); }
       100% { transform: translateY(-110vh) rotate(20deg); }
@@ -64,6 +69,7 @@
       background: gold;
       animation: fall 5s linear infinite;
     }
+
     @keyframes fall {
       0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
       100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
